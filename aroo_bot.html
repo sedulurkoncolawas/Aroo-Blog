@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://a.top4top.io/p_3097lgtbw0.jpg">
+    <link rel="shortcut icon" href="https://a.top4top.io/p_3097lgtbw0.jpg" type="image/x-icon" />
+    <title>Aroo-AI</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f7f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        a {
+          text-decoration: none;
+        }
+header {
+            background-color: #50394c;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .profile .Aroo {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        nav {
+            background-color: #735f6d;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 10px;
+        }
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            background-color: #fff;
+            overflow: hidden;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .chat-header {
+            background-color: #50394c;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .chat-box {
+            flex-grow: 1;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+        }
+        .chat-box .message {
+            display: flex;
+            align-items: flex-start;
+            margin: 10px 0;
+        }
+        .chat-box .message img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .chat-box .message p {
+            margin: 0;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 70%;
+        }
+        .chat-box .message.user p {
+            background-color: #f1f8e9;
+            text-align: right;
+            order: 1;
+        }
+        .chat-box .message.bot p {
+            background-color: #e1f5fe;
+            text-align: left;
+        }
+        .chat-box .typing {
+            display: flex;
+            align-items: center;
+        }
+        .chat-box .typing .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #333;
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: blink 1.4s infinite both;
+        }
+        .chat-box .typing .dot:nth-child(1) {
+            animation-delay: 0s;
+        }
+        .chat-box .typing .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .chat-box .typing .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes blink {
+            0%, 80%, 100% {
+                opacity: 0;
+            }
+            40% {
+                opacity: 1;
+            }
+        }
+        .input-container {
+            display: flex;
+            width: calc(100% - 20px);
+            padding: 10px;
+            background-color: #f9f7f4;
+            margin: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .input-container input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+        }
+        .input-container button {
+            padding: 10px;
+            border: none;
+            background-color: #50394c;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        .input-container button:hover {
+            background-color: #735f6d;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+<header>
+        <div class="profile">
+            <img src="https://a.top4top.io/p_3097lgtbw0.jpg" alt="Foto Profil">
+            <a class="Aroo" href="aroo_bot.html"><h1>Aroo-AI (belum selesai)</a></h1>
+        </div>
+    </header>
+        </div>
+            <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+         <a href="aroo_bot.html">ArooAI</a>
+    </nav>
+        <div class="chat-box" id="chat-box">
+          <p style="text-align: center; color: #999; font-size: 20px;"><b>Belum jadi wak masih gw bikin hehe :v</b></p>
+        </div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Ketik pesan..." disabled>
+            <button onclick="sendMessage()">Kirim</button>
+        </div>
+    </div>
+    <script>
+        async function sendMessage() {
+            const userInput = document.getElementById('user-input');
+            const chatBox = document.getElementById('chat-box');
+            const userMessage = userInput.value.trim();
+
+            if (userMessage === '') return;
+
+            const userMessageElement = document.createElement('div');
+            userMessageElement.className = 'message user';
+            userMessageElement.innerHTML = `<p>${userMessage}</p>`;
+            chatBox.appendChild(userMessageElement);
+
+            userInput.value = '';
+
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'typing';
+            typingIndicator.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+            chatBox.appendChild(typingIndicator);
+
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            const botResponse = await getBotResponse(userMessage);
+
+            chatBox.removeChild(typingIndicator);
+            const botMessageElement = document.createElement('div');
+            botMessageElement.className = 'message bot';
+            botMessageElement.innerHTML = `<img src="https://i.top4top.io/p_3097wmxyt1.jpg" alt="Bot"><p>${botResponse}</p>`;
+            chatBox.appendChild(botMessageElement);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        async function getBotResponse(userMessage) {
+            const apiKey = 'YOUR_API_KEY';
+            const apiUrl = 'https://api.openai.com/v1/engines/davinci-codex/completions';  // Endpoint API OpenAI
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    prompt: userMessage,
+                    max_tokens: 150
+                })
+            });
+
+            const data = await response.json();
+            return data.choices[0].text.trim();
+        }
+    </script>
+</body>
+</html>

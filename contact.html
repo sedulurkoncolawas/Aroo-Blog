@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://a.top4top.io/p_3097lgtbw0.jpg">
+    <link rel="shortcut icon" href="https://a.top4top.io/p_3097lgtbw0.jpg" type="image/x-icon" />
+    <title>Aroo-Contact</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f7f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #50394c;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        a {
+            text-decoration: none;
+        }
+        .Aroo {
+            color: #fff;
+            text-decoration: none;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .profile img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        nav {
+            background-color: #735f6d;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .contact-form label {
+            color: #50394c;
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .contact-form button {
+            background-color: #50394c;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .contact-form button:hover {
+            background-color: #735f6d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="profile">
+            <img src="https://a.top4top.io/p_3097lgtbw0.jpg" alt="Foto Profil">
+            <a class="Aroo" href="contact.html"><h1>Aroo-Contact</a></h1>
+        </div>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+         <a href="aroo_game.html">Game</a>
+    </nav>
+    <div class="container">
+        <div class="contact-form">
+            <label for="name">Name :</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button onclick="sendMessage()">Kirim Pesan</button>
+        </div>
+    </div>
+    <script>
+        function sendMessage() {
+            var name = document.getElementById('name').value;
+            var message = document.getElementById('message').value;
+            var phoneNumber = '6283182725011';
+
+            if (name.trim() === '' || message.trim() === '') {
+                alert('Nama dan Pesan Harus Diisi Su😹');
+                return;
+            }
+
+            var whatsappUrl = `https://wa.me/${phoneNumber}?text=Nama Gw :%20${encodeURIComponent(name)}%0APesan Gw :%20${encodeURIComponent(message)}`;
+
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>

@@ -71,7 +71,39 @@
         .about p {
             color: #666;
         }
-        
+                #connection-lost {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1e1e1e;
+            color: #b0b0b0;
+            text-align: center;
+            z-index: 1000;
+        }
+        #connection-lost h1 {
+            font-size: 2.5em;
+            margin: 20px 0;
+            color: #f0f0f0;
+        }
+        #connection-lost p {
+            font-size: 1.2em;
+            margin: 10px 0 20px 0;
+        }
+        #connection-lost .error-icon {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        #connection-lost .material-icons {
+            font-size: 4em;
+            color: #f0f0f0;
+        }
     </style>
 </head>
 <body>
@@ -93,5 +125,23 @@
             <p>Halo nama gw Aroo.<br>Umur gw 14<br>Hobi gw ngoding<br>Anime fav gw one piece<br>Waifu gw elaina, mahiru, yamada, shinobu, mitsuri :v</p>
         </div>
     </div>
+        <div id="connection-lost">
+        <img src="signal_wifi_off.png" alt="WiFi Off" class="error-icon">
+        <h1>Connection Lost</h1>
+        <p>No Connection. Try again later.</p>
+    </div>
+    <script>
+              function checkConnection() {
+            const connectionLostDiv = document.getElementById('connection-lost');
+            if (!navigator.onLine) {
+                connectionLostDiv.style.display = 'flex';
+            } else {
+                connectionLostDiv.style.display = 'none';
+            }
+        }
+        window.addEventListener('load', checkConnection);
+        window.addEventListener('online', checkConnection);
+        window.addEventListener('offline', checkConnection);
+    </script>
 </body>
 </html>

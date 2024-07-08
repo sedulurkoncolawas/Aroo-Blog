@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>List Aroo Cat</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f3f3;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    padding-bottom: 20px; /* Padding di bagian bawah */
+    margin-bottom: 40px; /* Margin bawah tambahan untuk memisahkan footer */
+  }
+
+  h2 {
+    background-color: #50394c; /* Warna biru tua untuk judul */
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    font-size: 24px;
+    border-bottom: 2px solid #2C3E50; /* Warna biru lebih gelap untuk garis bawah */
+  }
+
+  .kucing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+
+  .kucing-table th, .kucing-table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+  }
+
+ .kucing-table  th {
+    background-color: #735f6d; /* Warna abu-abu muda untuk header th */
+    font-weight: none;
+    color: #fff; /* Warna teks abu-abu gelap */
+  }
+
+  .kucing-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .kucing-table td {
+    color: #333;
+  }
+
+  .kucing-table .betina {
+    color: #FF69B4; /* Warna pink untuk betina */
+    font-weight: bold;
+  }
+
+  .kucing-table .jantan {
+    color: #0000FF; /* Warna biru untuk jantan */
+    font-weight: bold;
+  }
+
+  .kucing-table .mati {
+    color: #FF0000; /* Warna merah untuk status mati */
+    font-weight: bold;
+  }
+
+  .kucing-table .hidup {
+    color: #27AE60; /* Warna hijau tua untuk status hidup */
+    font-weight: bold;
+  }
+  
+  .kucing-table .unknown {
+    font-weight: bold;
+    color: orange;
+  }
+
+  .footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0; /* Padding untuk estetika */
+    background-color: #50394c; /* Warna latar belakang untuk footer */
+    color: #999; /* Warna teks putih */
+    position: fixed; /* Footer tetap di bawah */
+    bottom: 0; /* Mengatur posisi di bagian bawah */
+    left: 0; /* Mengatur posisi di kiri */
+    z-index: 1000; /* Z-index untuk memastikan footer di atas konten lainnya */
+  }
+  a {
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>List Aroo Cat</h2>
+
+  <table class="kucing-table">
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Gender</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jojon</td>
+        <td class="jantan">Jantan</td>
+        <td class="unknown">Unknown</td>
+      </tr>
+      <tr>
+        <td>Kiro</td>
+        <td class="jantan">Jantan</td>
+        <td class="mati">Mati</td>
+      </tr>
+      <tr>
+        <td>Meppy</td>
+        <td class="betina">Betina</td>
+        <td class="mati">Mati</td>
+      </tr>
+      <tr>
+        <td>Moshi</td>
+        <td class="betina">Betina</td>
+        <td class="hidup">Hidup</td>
+      </tr>
+      <tr>
+        <td>Bekki</td>
+        <td class="jantan">Jantan</td>
+        <td class="hidup">Hidup</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="footer">
+ <b><a style="color: #1877F2;" href="index.html">Aroo-Blog</a></b>
+</div>
+</body>
+</html>

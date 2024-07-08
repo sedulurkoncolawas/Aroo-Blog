@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" href="https://i.top4top.io/p_3095jm3kw0.jpg" type="image/x-icon" />
+          <meta property="og:image" content="https://i.top4top.io/p_3095jm3kw0.jpg">
+      <meta property="og:description" content="Cek Wujud Aseli Lu Disini !">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cek Wujud Aseli</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('https://d.top4top.io/p_3095lc6x30.jpg'); /* Ganti dengan path gambar yang Anda inginkan */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+  
+  .text {
+    color: black;
+  }
+  
+  .container {
+    border: 1px solid #007bff;
+    max-width: 400px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: max-width 0.3s; /* Transisi untuk max-width */
+    padding-bottom: 60px; /* Tambahan padding bawah untuk ruang tambahan */
+  }
+  
+  .container.expanded {
+    max-width: 600px; /* Ukuran maksimal yang diperluas */
+  }
+  
+  h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Mengubah orientasi kolom agar tombol di bawah hasil */
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  button#cek {
+    background-color: #007bff;
+    color: #fff;
+    margin-bottom: 10px; /* Jarak antara tombol dan hasil */
+  }
+  
+  button#cek:hover {
+    background-color: #0056b3;
+  }
+  
+  button#ulangi {
+    background-color: #dc3545;
+    color: #fff;
+    margin-top: 10px; /* Jarak antara hasil dan tombol */
+    display: none; /* Tombol ulangi awalnya disembunyikan */
+  }
+  
+  button#ulangi:hover {
+    background-color: #c82333;
+  }
+  
+  #hasil {
+    margin-top: 20px;
+    font-size: 24px; /* Memperbesar ukuran font hasil */
+    display: none;
+    text-align: center; /* Pusatkan teks hasil */
+    color: red; /* Warna teks hasil */
+  }
+  
+  #hasil span.nama {
+    font-weight: bold;
+    color: crimson; /* Warna teks nama */
+  }
+  
+  #hasil span.wujud {
+    font-weight: bold;
+    color: black;
+    font-size: 35px;
+  }
+  
+  .loading {
+    display: none;
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center; /* Pusatkan teks loading */
+    color: red; /* Warna teks loading */
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Cek Wujud Aseli</h1>
+  <label for="nama" id="label-nama">Siapa Nama Kamu?</label><br>
+  <input type="text" id="nama" name="nama" placeholder="Tulis Namamu" maxlength="10" oninput="formatNama(this.value)"><br>
+  <button id="cek" onclick="cekWujudAseli()">Cek</button>
+  <div id="loading" class="loading">Sedang Memeriksa...</div>
+  <p id="hasil"></p>
+  <button id="ulangi" onclick="ulangi()">Ulangi</button>
+  <footer style="position: relative; top: 50px; font-size: 16px;"><b><a style="color: #1877F2; text-decoration: none;" href="index.html">Aroo-Blog</a></b></footer>
+</div>
+<script>
+  function formatNama(value) {
+    // Ubah huruf pertama setiap kata menjadi kapital
+    var words = value.split(' ');
+    for (var i = 0; i < words.length; i++) {
+      words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
+    }
+    var formattedValue = words.join(' ');
+    document.getElementById('nama').value = formattedValue;
+  }
+  
+  function cekWujudAseli() {
+    var namaInput = document.getElementById('nama');
+    var nama = namaInput.value.trim();
+    
+    // Validasi minimal tiga karakter
+    if (nama.length < 3) {
+      var hasil = document.getElementById('hasil');
+      hasil.innerHTML = 'Masukkan Nama Kamu !';
+      hasil.style.display = 'block';
+      return;
+    }
+    
+    // Validasi hanya huruf dan spasi
+    if (!/^[A-Za-z\s]+$/.test(nama)) {
+      var hasil = document.getElementById('hasil');
+      hasil.innerHTML = 'Masukkan Hanya Huruf !';
+      hasil.style.display = 'block';
+      return;
+    }
+    
+    // Daftar kata-kata yang tidak diinginkan
+    var unwantedWords = ['tuhan', 'allah', 'yesus', 'buddha']; // Tambahkan kata-kata lain jika diperlukan
+    
+    // Memeriksa apakah input mengandung kata-kata tidak diinginkan
+    for (var i = 0; i < unwantedWords.length; i++) {
+      if (nama.toLowerCase().indexOf(unwantedWords[i]) !== -1) {
+        var hasil = document.getElementById('hasil');
+        hasil.innerHTML = 'Masukkan Nama Lain !';
+        hasil.style.display = 'block';
+        return;
+      }
+    }
+    
+    var loading = document.getElementById('loading');
+    loading.style.display = 'block';
+    
+    var hasil = document.getElementById('hasil');
+    hasil.style.display = 'none';
+    
+    // Menyembunyikan kotak input dan label
+    namaInput.style.display = 'none';
+    document.getElementById('label-nama').style.display = 'none';
+    
+    setTimeout(function() {
+      var wujudAseli = ['Negro', 'Nigga', 'Hytam', 'Pembokep', 'Agen bokep', 'Jomok', 'Pedo😹', 'Dark', 'Hitam'];
+      var randomIndex = Math.floor(Math.random() * wujudAseli.length);
+      var hasilWujud = wujudAseli[randomIndex];
+      
+      loading.style.display = 'none';
+      hasil.innerHTML = '<span class="text">Waduh Wujud Aselinya <span class="nama">' + nama + '</span></span><br><br><span class="wujud">' + hasilWujud + ' !</span>';
+      hasil.style.display = 'block';
+      
+      // Memunculkan tombol "Ulangi" dan menempatkannya di tengah
+      var ulangiButton = document.getElementById('ulangi');
+      ulangiButton.style.display = 'inline-block';
+      
+      // Menyembunyikan tombol "Cek" pertama
+      document.getElementById('cek').style.display = 'none';
+      
+      // Tambahkan class untuk memperluas container
+      document.querySelector('.container').classList.add('expanded');
+    }, 1500);
+  }
+  
+  function ulangi() {
+    // Mengosongkan input, menyembunyikan hasil, dan menampilkan kembali kotak input dan label
+    var namaInput = document.getElementById('nama');
+    namaInput.value = '';
+    namaInput.style.display = 'block';
+    document.getElementById('label-nama').style.display = 'block';
+    document.getElementById('hasil').style.display = 'none';
+    document.getElementById('ulangi').style.display = 'none';
+    
+    // Menampilkan kembali tombol "Cek" pertama
+    document.getElementById('cek').style.display = 'inline-block';
+    
+    // Menghapus class untuk mengembalikan container ke ukuran semula
+    document.querySelector('.container').classList.remove('expanded');
+  }
+  </script>
+  </body>
+</html>
